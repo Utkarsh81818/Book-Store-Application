@@ -11,4 +11,6 @@ const router = express.Router();
 router.post('/user', newUserValidator, setRole('user'), userController.newUser);
 //route to register users for admin
 router.post('/admin', newUserValidator, setRole('admin'), userController.newUser);
+//routes for login API
+router.post('/login', userController.login)
 export default router;

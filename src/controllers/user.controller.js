@@ -19,3 +19,16 @@ export const newUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const login = async (req, res, next) => {
+  try {
+    const data = await UserService.login(req.body);
+    res.status(HttpStatus.OK).json({
+      code: HttpStatus.OK,
+      data: data,
+      message: 'Login successfully'
+    });
+  } catch (error) {
+    next(error);
+  }
+};
